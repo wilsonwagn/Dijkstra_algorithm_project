@@ -1,3 +1,9 @@
+"""
+Projeto de Algoritmo de Dijkstra para a disciplina de Algoritmos 2020.3.
+Por: Wilson Wagner e Isabella Menezes
+Repositório no Git-Hub: https://github.com/wilsonwagner/Dijkstra-algorithm-project
+"""
+
 import sys
 
 #—————————————————————————————————————————— ADICIONANDO VERTICES ————————————————————————————————————————————————————————————————————————
@@ -72,14 +78,9 @@ class Dijkstra:
       indice_minimo = self.distancia_minima(distancia, visitados)
       visitados[indice_minimo] = True
       for vertice in range(self.tamanho):
-        
-        #Se a distância daquela posição do vertice for maior que 0 | E não foi visitado // 
-        # Distancia do vertice atual foi maior que a distancia do vertice mínimo
-        # +
         if self.grafo[indice_minimo][vertice] > 0 and visitados[vertice] == False \
             and distancia[vertice] > (distancia[indice_minimo] + self.grafo[indice_minimo][vertice]):
-          
-          #RELAXAMENTO, ou seja, atualização dos valores | Parte principal do algoritmo.
+          #Relaxamento
           distancia[vertice] = distancia[indice_minimo] + self.grafo[indice_minimo][vertice]
     self.mostra_solucao(distancia)
 
